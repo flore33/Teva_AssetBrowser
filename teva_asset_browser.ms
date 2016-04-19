@@ -30,7 +30,6 @@ for i=1 to _AssetTopItems.count do
 rollout _AssetBrowser "Asset Browser"
 
 (
-	
 	listbox _AssetList "Asset List" items:_AssetItemsUI
 	button _go "go"
 	button _in "in"
@@ -47,8 +46,6 @@ rollout _AssetBrowser "Asset Browser"
 			 _level=2 
 			
 			  _FXTopDir=_AssetTopItems[_AssetList.selection] + "*"
-			
-			  --print _FXTopDir
 			  
 				-- clear the contents of the list ui
 				for i=1 to _AssetList.items.count do
@@ -64,8 +61,6 @@ rollout _AssetBrowser "Asset Browser"
 					
 				(
 					_temp=(filterstring _AssetItems[i] @"\")[4]
-					--print i
-					--print _temp
 					insertItem _temp _AssetItemsUI i
 				)
 
