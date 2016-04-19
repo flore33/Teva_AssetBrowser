@@ -26,6 +26,14 @@ for i=1 to _AssetTopItems.count do
 	_AssetItemsUI[i]=(filterstring _AssetTopItems[i] @"\")[3]
 )
 
+function clearListBox listbox =
+(
+	-- clear the contents of the list ui
+	for i=1 to listbox.items.count do
+	(
+		listbox.items = deleteItem listbox.items 1
+	)
+)
 
 rollout _AssetBrowser "Asset Browser"
 
@@ -51,10 +59,12 @@ rollout _AssetBrowser "Asset Browser"
 			  --print _FXTopDir
 			  
 				-- clear the contents of the list ui
-				for i=1 to _AssetList.items.count do
-				(
-					_AssetList.items = deleteItem _AssetList.items 1
-				)
+			  clearListBox _AssetList
+			  
+				--for i=1 to _AssetList.items.count do
+				--(
+				--	_AssetList.items = deleteItem _AssetList.items 1
+				--)
 				
 				-- get the contents of the selected directory FXTopDir
 				_AssetItems=getdirectories _FXTopDir 
@@ -87,10 +97,12 @@ rollout _AssetBrowser "Asset Browser"
 		(
 			_level = 1
 			-- clear the contents of the list ui
-			for i=1 to _AssetList.items.count do
-			(
-				_AssetList.items = deleteItem _AssetList.items 1
-			)
+			 clearListBox _AssetList
+			
+			--for i=1 to _AssetList.items.count do
+			--(
+			--	_AssetList.items = deleteItem _AssetList.items 1
+			--)
 				
 			-- show level 1
 			_AssetTopItems=getdirectories _Directory
@@ -113,7 +125,6 @@ rollout _AssetBrowser "Asset Browser"
 				Update the list with _AssetItemsUI
 			*/
 			_AssetList.items = _AssetItemsUI
-
 
 		)
 	)
